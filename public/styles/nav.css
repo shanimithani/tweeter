@@ -1,0 +1,12 @@
+nav {
+
+  height: 120px;
+  display: flex;
+  margin: 0;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 0em 1.5em;
+  justify-content: space-between;
+  align-items: center;
+
+}
