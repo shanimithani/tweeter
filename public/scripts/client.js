@@ -26,10 +26,10 @@ $(document).ready(function () {
  
   $('#tweet-form').submit(function (event) {
     event.preventDefault(); // Prevent the default form submission behavior
-
+  
     const formData = $(this).serialize(); // Serialize the form data as a string
     const tweetContent = $(this).find('textarea[name="text"]').val();
-
+  
     // Check if the tweet content is empty or exceeds the maximum length
     if (!tweetContent) {
       alert("Tweet cannot be empty.");
@@ -39,13 +39,12 @@ $(document).ready(function () {
       // Make an AJAX POST request to send the form data to the server
       $.ajax({
         type: 'POST',
-        url: 'http://localhost:8080', 
+        url: 'http://localhost:8080/tweets', 
         data: formData,
         success: function (response) {
           console.log('Form data sent successfully!');
           console.log(response);
-          // Clear the form 
-          $('#tweet-form')[0].reset();
+          loadTweets();
         },
         error: function (error) {
           // Handle any errors
@@ -54,6 +53,8 @@ $(document).ready(function () {
       });
     }
   });
+  
+
 
 
   const createTweetElement = function (tweet) {
