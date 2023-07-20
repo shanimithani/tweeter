@@ -8,5 +8,14 @@ nav {
   padding: 0em 1.5em;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
+}
+
+
+nav a:hover {
+  color: #4056A1;
 }

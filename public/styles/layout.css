@@ -3,6 +3,38 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+ /* CSS for Desktop Version */
+ @media (min-width: 800px) {
+   #container {
+     display: flex;
+     gap: 20px;
+   }
+ 
+   #tweet-header {
+     flex: 1;
+     padding: 20px;
+   }
+ 
+   #tweets-container {
+     flex: 2;
+     padding: 20px;
+   }
+ }
+ 
+ /* CSS for Mobile Version */
+ @media (max-width: 800px) {
+   #container {
+     display: flex;
+     flex-direction: column;
+   }
+ 
+   #tweet-header,
+   #tweets-container {
+     padding: 20px;
+   }
+ }
+
+ 
 html {
   box-sizing: border-box;
 }
@@ -47,7 +79,8 @@ main {
 
 
 .new-tweet {
-  width: 1200px;
+  padding-top: 20px;
+  padding-right: 15px;
 }
 
 label {
@@ -97,8 +130,10 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 400px; 
-  padding: 50px;
+
+  padding-top: 200px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 nav {
@@ -112,6 +147,8 @@ nav {
   display: flex;
   align-items: center;
 }
+
+
 
 .tweet-author {
   color: lightgrey;
@@ -149,3 +186,8 @@ nav {
 }
 
 
+.error-message {
+  color: red;
+  font-size: 14px;
+  display: none;
+}

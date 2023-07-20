@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
-    
-    <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+<head>
+  <!-- Meta Information -->
+  <title>Tweeter - Home Page</title>
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
 
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
-    <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="/scripts/composer-char-counter.js"></script>
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="/scripts/composer-char-counter.js"></script>
 
-    <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
-    <!-- Time ago-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/client.js"></script>
+  <!-- Time ago-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  </head>
+</head>
 
-  <body>
-    <!-- Top nav bar (fixed) -->
- 
-    <nav >
-      <span id="logo">tweeter</span>
-      <div id="rhs">
-        <p> Write your tweet here</p>
-        <i class="fa-solid fa-angle-double-down"></i>
-      </div>
-      
-    </nav>
+<body>
+  <!-- Top nav bar (fixed) -->
+  <nav>
+    <span id="logo">tweeter</span>
+    <div id="rhs">
+      <p> Write your tweet here</p>
+      <i class="fa-solid fa-angle-double-down"></i>
+    </div>
+  </nav>
 
-    <header id="tweet-header">
+  <div id="container">
+    <div id="tweet-header">
       <div id="profile">
-          <img src="/images/profile-hex.png"> 
+        <img src="/images/profile-hex.png"> 
       </div>
       <br>
       <div>
-          <h2>Your Name</h2>
-      </div id="name">
-  </header>
+        <h2>Your Name</h2>
+      </div>
+    </div>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
@@ -62,6 +61,7 @@
           <textarea name="text" id="tweet-text"></textarea>
           <hr> 
           <div>
+            <div class="error-message" style="display: none;"></div>
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
@@ -69,25 +69,9 @@
       </section>
       <br>
       <section id="tweets-container">
-        <article class="tweet">
-          <header>
-            <img src="profile-picture.png" alt="Profile Picture">
-            <h3 class="tweet-author">Author Name</h3>
-            <span class="tweet-username">@username</span>
-          </header>
-          <div class="tweet-content">
-            <p class="tweet-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada erat quis sapien pretium, ut ultrices mauris mattis.</p>
-          </div>
-          <footer>
-            <span class="tweet-timestamp">2 hours ago</span>
-            <div class="tweet-actions">
-              <a href="#" class="tweet-action"><i class="far fa-heart"></i> Like</a>
-              <a href="#" class="tweet-action"><i class="fas fa-retweet"></i> Retweet</a>
-              <a href="#" class="tweet-action"><i class="far fa-flag"></i> Report</a>
-            </div>
-          </footer>
-        </article>        
+        <!-- Tweet feed goes here -->
       </section>
     </main>
-  </body>
+  </div>
+</body>
 </html>
