@@ -1,18 +1,5 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a simple, single-page Twitter clone made during the Lighthouse Labs coding bootcamp. You can make tweets and see them in a local feed. Trying to give Elon a run for his money. 😂
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
-
-## Getting Started
-
-1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.
-2. Clone your repository onto your local device.
-3. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
-
-## Dependencies
-
-- Express
-- Node 5.10.x or above
+<img width="1218" alt="Screen Shot 2023-07-21 at 10 20 49 AM" src="https://github.com/shanimithani/tweeter/assets/10202231/7f602e56-769f-4781-ac53-b629d9d9978d">
