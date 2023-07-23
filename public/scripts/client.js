@@ -17,6 +17,10 @@ $(document).ready(function () {
   const renderTweets = function (tweets) {
     const $tweetsContainer = $('#tweets-container');
     $tweetsContainer.empty(); // Clear the container before appending new tweets
+  
+    // Reverse
+    tweets.sort((a, b) => b.created_at - a.created_at);
+  
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
       $tweetsContainer.append($tweet);
@@ -26,14 +30,14 @@ $(document).ready(function () {
  
   $('#tweet-form').submit(function (event) {
     event.preventDefault();
-
+  
     const formData = $(this).serialize();
     const tweetContent = $(this).find('textarea[name="text"]').val();
     const $errorMessage = $('.error-message');
-
+  
     // Hide the error message before validation
     $errorMessage.slideUp();
-
+  
     if (!tweetContent) {
       $errorMessage.text('Tweet cannot be empty.').slideDown();
     } else if (tweetContent.length > 140) {
@@ -46,6 +50,14 @@ $(document).ready(function () {
         success: function (response) {
           console.log('Form data sent successfully!');
           console.log(response);
+  
+          // Clear the textarea
+          $('#tweet-text').val('');
+  
+          // Reset the character counter back to 140
+          $('.counter').text('140');
+  
+          // Reload
           loadTweets();
         },
         error: function (error) {
@@ -69,10 +81,21 @@ $(document).ready(function () {
     const $content = $('<div>').addClass('content').text(content.text);
     const $footer = $('<footer>');
     const $timestamp = $('<span>').addClass('timestamp').text(timeago.format(new Date(created_at)));
+    const $actions = $('<div>').addClass('tweet-actions');
+    const $likeIcon = $('<i>').addClass('far fa-heart');
+    const $retweetIcon = $('<i>').addClass('fas fa-retweet');
+    const $flagIcon = $('<i>').addClass('fas fa-flag');
 
     $header.append($avatar, $name, $handle);
     $footer.append($timestamp);
     $tweet.append($header, $content, $footer);
+    $actions.append($likeIcon, $retweetIcon, $flagIcon);
+    $footer.append($timestamp, $actions); // Add the actions to the footer
+
+
+
+  $actions.append($likeIcon, $retweetIcon, $flagIcon);
+  $footer.append($timestamp, $actions); // Add the actions to the footer
 
     return $tweet;
   };

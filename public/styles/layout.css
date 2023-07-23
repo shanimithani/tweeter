@@ -123,6 +123,7 @@ hr {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  position: relative;
 }
 
 #tweet-header {
@@ -145,6 +146,7 @@ nav {
 
 .tweet-profile {
   display: flex;
+  justify-content: space-between; /* updated */
   align-items: center;
 }
 
@@ -160,7 +162,20 @@ nav {
 
 .tweet-actions {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: flex-start; 
+  margin-top: 5px; 
+}
+
+.tweet-actions i {
+  margin-right: 10px; 
+  color: #999; 
+  cursor: pointer;
+  transition: color 0.2s; /\
+}
+
+.tweet-actions i:hover {
+  color: #4056A1; 
 }
 
 .tweet-action {
@@ -191,3 +206,8 @@ nav {
   font-size: 14px;
   display: none;
 }
+
+.tweet:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
