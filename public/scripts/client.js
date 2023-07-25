@@ -32,7 +32,7 @@ $(document).ready(function () {
     event.preventDefault();
   
     const formData = $(this).serialize();
-    const tweetContent = $(this).find('textarea[name="text"]').val();
+    const tweetContent = $(this).find('textarea[name="text"]').val().trim(); 
     const $errorMessage = $('.error-message');
   
     // Hide the error message before validation
