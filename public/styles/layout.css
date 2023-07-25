@@ -127,6 +127,10 @@ hr {
   position: relative;
 }
 
+.tweet:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+}
+
 #tweet-header {
   background-color: orange;
   display: flex;
