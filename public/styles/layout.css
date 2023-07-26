@@ -32,6 +32,9 @@
    #tweets-container {
      padding: 20px;
    }
+   .content {
+    word-wrap: break-word;  
+  }
  }
 
  
@@ -121,14 +124,25 @@ hr {
 
 .tweet {
   border: 1px solid black;
-  display: flex;
   flex-direction: column;
+  align-items: flex-start;
   padding: 10px;
   position: relative;
 }
 
+.tweet .name {
+  margin-bottom: 4px; 
+}
+
+.tweet .handle {
+  align-self: flex-end; 
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+}
+
 .tweet:hover {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);  
 }
 
 #tweet-header {
@@ -141,6 +155,8 @@ hr {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+
 
 nav {
   position: fixed;

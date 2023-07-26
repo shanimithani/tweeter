@@ -9,7 +9,7 @@ $(document).ready(function () {
         renderTweets(tweets);
       },
       error: function (error) {
-        console.error('Error loading tweets:', error);
+        console.error('Error loading tweets:', error); 
       }
     });
   };
@@ -48,8 +48,8 @@ $(document).ready(function () {
         url: 'http://localhost:8080/tweets',
         data: formData,
         success: function (response) {
-          console.log('Form data sent successfully!');
-          console.log(response);
+          //console.log('Form data sent successfully!'); Clearing console logs as per request of Yashsvi 
+          //console.log(response); Clearing console logs as per request of Yashsvi 
   
           // Clear the textarea
           $('#tweet-text').val('');
@@ -72,9 +72,9 @@ $(document).ready(function () {
 
   const createTweetElement = function (tweet) {
     const { user, content, created_at } = tweet;
-
+  
     const $tweet = $('<article>').addClass('tweet');
-    const $header = $('<header>');
+    const $header = $('<header>').addClass('tweet-header');
     const $avatar = $('<img>').addClass('avatar').attr('src', user.avatars);
     const $name = $('<span>').addClass('name').text(user.name);
     const $handle = $('<span>').addClass('handle').text(user.handle);
@@ -85,18 +85,14 @@ $(document).ready(function () {
     const $likeIcon = $('<i>').addClass('far fa-heart');
     const $retweetIcon = $('<i>').addClass('fas fa-retweet');
     const $flagIcon = $('<i>').addClass('fas fa-flag');
-
-    $header.append($avatar, $name, $handle);
+  
+    $header.append($avatar, $name);
+    $header.append($handle);
     $footer.append($timestamp);
     $tweet.append($header, $content, $footer);
     $actions.append($likeIcon, $retweetIcon, $flagIcon);
     $footer.append($timestamp, $actions); // Add the actions to the footer
-
-
-
-  $actions.append($likeIcon, $retweetIcon, $flagIcon);
-  $footer.append($timestamp, $actions); // Add the actions to the footer
-
+  
     return $tweet;
   };
 
