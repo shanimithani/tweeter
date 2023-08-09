@@ -8,34 +8,49 @@
    #container {
      display: flex;
      gap: 20px;
+     margin-top: 130px;
    }
  
    #tweet-header {
      flex: 1;
      padding: 20px;
+   
+
    }
  
    #tweets-container {
      flex: 2;
      padding: 20px;
+    
    }
  }
  
- /* CSS for Mobile Version */
- @media (max-width: 800px) {
-   #container {
-     display: flex;
-     flex-direction: column;
-   }
- 
-   #tweet-header,
-   #tweets-container {
-     padding: 20px;
-   }
-   .content {
-    word-wrap: break-word;  
+
+/* CSS for Mobile Version */
+@media (max-width: 800px) {
+  #container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 130px;
   }
- }
+
+  #tweet-header,
+  #tweets-container {
+    padding: 20px;
+  }
+
+
+  #tweet-header {
+    height: auto;
+    top: 0;
+  }
+
+  #tweets-container {
+    margin-top: 10px;
+    z-index: 1; 
+  }
+
+}
 
  
 html {
@@ -49,7 +64,66 @@ html {
  * Global layout stuff
  */
 
+footer {
+  border-top: 1px solid black;
+  padding-top: 7px;
+  display: flex;
+  justify-content: space-between;
+}
 
+ .content {
+  word-wrap: break-word;  
+  overflow-wrap: break-word; 
+}
+ .tweet-actions i,
+ .tweet-actions i path {
+   margin-right: 10px;
+   color: #999;
+   cursor: pointer;
+   transition: color 0.2s;
+ }
+ 
+
+ .like:hover,
+.rt:hover,
+.flag:hover {
+  color: #4056A1;
+}
+ 
+
+.icons-container {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Move the icons to the right */
+  margin-right: 30px;
+  margin-bottom: 20px;
+  gap: 5px;
+}
+
+.timestamp {
+  color: grey;
+  margin-right: 10px; 
+  font-size: 18px;
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid black; /* Increase the thickness as desired */
+  margin: 10px 0; /* Adjust the margin as desired */
+}
+
+/* Style the tweet actions icons */
+.tweet-actions i {
+  margin-right: 10px;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.tweet-actions i:hover {
+  color: #4056A1;
+}
 
 body {
   color: #545149;
@@ -128,17 +202,21 @@ hr {
   align-items: flex-start;
   padding: 10px;
   position: relative;
+  max-width: 100%;
+  margin-bottom: 15px;
 }
 
 .tweet .name {
   margin-bottom: 4px; 
+  
 }
 
 .tweet .handle {
-  align-self: flex-end; 
-  position: absolute; 
-  top: 0; 
-  right: 0; 
+  align-self: flex-end;
+  position: absolute;
+  top: 20px; 
+  right: 10px;
+  color: rgb(179, 179, 179); 
 }
 
 .tweet:hover {
@@ -150,10 +228,13 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  height: 650px; 
   padding-top: 200px;
   padding-left: 20px;
   padding-right: 20px;
+  margin: 1%;
+  z-index: -1; 
+  
 }
 
 

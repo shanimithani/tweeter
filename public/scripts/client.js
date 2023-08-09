@@ -67,31 +67,36 @@ $(document).ready(function () {
     }
   });
 
-
-
-
   const createTweetElement = function (tweet) {
     const { user, content, created_at } = tweet;
   
     const $tweet = $('<article>').addClass('tweet');
-    const $header = $('<header>').addClass('tweet-header');
+    const $tweetHeader = $('<header>').addClass('tweet-header');
+  
     const $avatar = $('<img>').addClass('avatar').attr('src', user.avatars);
-    const $name = $('<span>').addClass('name').text(user.name);
+    const $fullName = $('<span>').addClass('name').text(user.name);
     const $handle = $('<span>').addClass('handle').text(user.handle);
+  
+    const $leftSideOfHeader = $('<div>').addClass('tweet-header-left');
+    $leftSideOfHeader.append($avatar, $fullName, $handle);
+  
     const $content = $('<div>').addClass('content').text(content.text);
+  
     const $footer = $('<footer>');
     const $timestamp = $('<span>').addClass('timestamp').text(timeago.format(new Date(created_at)));
-    const $actions = $('<div>').addClass('tweet-actions');
-    const $likeIcon = $('<i>').addClass('far fa-heart');
-    const $retweetIcon = $('<i>').addClass('fas fa-retweet');
-    const $flagIcon = $('<i>').addClass('fas fa-flag');
+
+    // Create a container for icons
+    const $iconsContainer = $('<div>').addClass('icons-container');
+    const $likeIcon = $('<i>').addClass('far fa-heart like');
+    const $retweetIcon = $('<i>').addClass('fas fa-retweet rt');
+    const $flagIcon = $('<i>').addClass('fas fa-flag flag');
+    $iconsContainer.append($likeIcon, $retweetIcon, $flagIcon);
+
+    // Append the timestamp and icons container to the footer
+    $footer.append($timestamp, $iconsContainer);
   
-    $header.append($avatar, $name);
-    $header.append($handle);
-    $footer.append($timestamp);
-    $tweet.append($header, $content, $footer);
-    $actions.append($likeIcon, $retweetIcon, $flagIcon);
-    $footer.append($timestamp, $actions); // Add the actions to the footer
+    $tweetHeader.append($leftSideOfHeader);
+    $tweet.append($tweetHeader, $content, $footer);
   
     return $tweet;
   };
