@@ -1,6 +1,8 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone made during the Lighthouse Labs coding bootcamp. You can make tweets and see them in a local feed. Trying to give Elon a run for his money. 😂
+Tweeter is a simple, single-page Twitter clone made during the Lighthouse Labs coding bootcamp. 
+
+You can make tweets and see them in a local feed. 
 
 Dependencies: 
 "body-parser": "^1.15.2",
